@@ -1,0 +1,265 @@
+
+#include "glfuncs.h"
+
+#include <vector>
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <set>
+#include <map>
+#include <stdexcept>
+#include <cassert>
+#include <stdlib.h>
+#include <ciso646>
+#include <typeinfo>
+#include <cmath>
+#include <iostream>
+#include "Cube.h"
+
+using namespace std;
+
+#include <SDL.h>
+#include <SDL_mixer.h>
+#include "Program.h"
+#include "math3d.h"
+#include "ImageCubeTexture.h"
+#include "Camera.h"
+#include "Mesh.h"
+#include "Skybox.h"
+#include "Arrow.h"
+#include "Robot.h"
+#include "AudoManager.h"
+
+using namespace std;
+
+//== IDK what this does ==========================================================
+void APIENTRY debugcallback( GLenum source, GLenum typ,
+    GLuint id_, GLenum severity, GLsizei length,
+    const GLchar* message, const void* obj ){
+
+    cout << message << endl; ;
+     if( source != GL_DEBUG_SOURCE_SHADER_COMPILER && severity == GL_DEBUG_SEVERITY_HIGH ){
+        throw runtime_error("GL error");
+    }
+}
+
+int main(int argc, char* argv[])
+{
+
+	//== Window Set Up ============================================================
+    SDL_Init(SDL_INIT_VIDEO);
+	SDL_Init(SDL_INIT_AUDIO);
+    SDL_Window* win = SDL_CreateWindow( 
+        "Album Title Goes Here",
+        SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+        1808,1017, 
+        SDL_WINDOW_OPENGL);
+    if(!win){
+        throw runtime_error("Could not create window");
+    }
+
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
+    SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION,3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION,3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS,SDL_GL_CONTEXT_DEBUG_FLAG);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    SDL_GLContext rc = SDL_GL_CreateContext(win);
+    if(!rc){
+        throw runtime_error( "Cannot create GL context" );
+    }
+            
+    glDebugMessageControl(GL_DONT_CARE,GL_DONT_CARE,GL_DONT_CARE, 0, NULL, 1 );
+    glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+	glEnable(GL_BLEND);
+	glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glDebugMessageCallback(debugcallback,NULL);
+
+    //==================================================================================================================\\
+	//===                                    this is where we declare objects                                        ===\\
+	//==================================================================================================================\\
+	
+	//this set up the main shader
+    Program* prog = new Program("vs.txt","fs.txt");
+    prog->use();
+
+	//this is my new skybox class
+	Skybox* mySkyBox = new Skybox("skyBoxvs.txt", "skyBoxfs.txt", "px.png","nx.png","pz.png","nz.png","py.png","ny.png");
+
+	//this sets up the camera
+    Camera* cam = new Camera();
+    //cam->look_at(vec3(2,1,2), vec3(0,1,0), vec3(0,1,0) );
+
+
+	//this turns reflection on and off in the main shader (for every object? Idk how it works tbh)
+    bool reflective=true;
+    
+    //for cubemaps rendered from Blender:
+    //y and z are swapped compared to how GL thinks of them.
+    ImageCubeTexture* T = new ImageCubeTexture({"px.png","nx.png","pz.png","nz.png","py.png","ny.png"});
+    
+
+	//this changes the default background color (not used any more)
+    glClearColor(0.25,0.0,0.25,1.0);
+	//this makes sure all our objects render by distance not by render order (so things in the background don't render overtop of things in the foreground)
+    glEnable(GL_DEPTH_TEST);
+	//this changes how the depth test works so that my skybox shader works properly
+	glDepthFunc(GL_LEQUAL);
+
+	//this holds all the key presses to be used the next time the loop runs
+    set<int> keys;
+    // I think this is the delta Time
+    int last=SDL_GetTicks();
+	//No clue what this does
+    SDL_Event ev;
+
+	//== Testing ==============================================================
+	Arrow* testArrow1 = new Arrow();
+	testArrow1->importLevel("testSong.txt");
+	bool start = false;
+
+	// audio stuff ============================
+
+	//The music that will be played 
+	Mix_Music *music = NULL; 
+	//The sound effects that will be used 
+	Mix_Chunk *scratch = NULL; 
+
+	// inits the mixer
+	if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1) 
+		{ return false; }
+
+	//Load the music 
+	music = Mix_LoadMUS("songOne.ogg");
+	scratch = Mix_LoadWAV("songTwo.ogg");
+
+	bool doingGood = true;
+
+
+	//==================================================================================================================\\
+	//===                                               MAIN GAME LOOP                                               ===\\
+	//==================================================================================================================\\
+
+    while(1){
+		//== input handling ============================================================
+        while(1){
+            if(!SDL_PollEvent(&ev))
+			{
+                break;
+            }
+        
+            if(ev.type == SDL_QUIT)
+			{
+                exit(0);
+            }
+			else if( ev.type == SDL_KEYDOWN )
+			{
+                int k = ev.key.keysym.sym;
+                keys.insert(k);
+                if(k == SDLK_q || k == SDLK_ESCAPE)
+                    exit(0);
+            } 
+			else if(ev.type == SDL_KEYUP)
+			{
+                int k = ev.key.keysym.sym;
+                keys.erase(k);
+            }
+			else if( ev.type == SDL_MOUSEBUTTONDOWN )
+			{
+                //print("mouse down:",ev.button.button,ev.button.x,ev.button.y);
+            }
+			else if(ev.type == SDL_MOUSEBUTTONUP)
+			{
+                //cout << ("mouse up:",ev.button.button,ev.button.x,ev.button.y);
+            }
+			else if( ev.type == SDL_MOUSEMOTION )
+			{
+                //int dx = ev.motion.xrel;
+                //cam->turn(-0.01*dx);
+            }
+        }
+        
+        int now = SDL_GetTicks();
+        float elapsed = now-last;
+        last=now;
+		if (keys.find(SDLK_RETURN) != keys.end())
+		{
+			start = true;
+			testArrow1->restLevel();
+			if (!Mix_Playing(-1))// this functon returns true if there is somthing playing on this channel.  
+			{
+				Mix_PlayChannel(-1, scratch, 0);
+			} // the -1 is the channel that wiil be used
+			Mix_PlayMusic(music, 1);// the 1 here is how many times the song will repeat.
+		}
+		if (keys.find(SDLK_w) != keys.end())
+		{
+			if (!testArrow1->checkArrow("up") && doingGood)
+				{ Mix_VolumeMusic(0); doingGood = false; }
+			else if (testArrow1->checkArrow("up") && !doingGood)
+				{ Mix_VolumeMusic(MIX_MAX_VOLUME); doingGood = true; }
+		}
+		if (keys.find(SDLK_a) != keys.end())
+		{
+			if (!testArrow1->checkArrow("left") && doingGood)
+				{ Mix_VolumeMusic(0); doingGood = false; }
+			else if (testArrow1->checkArrow("left") && !doingGood)
+				{ Mix_VolumeMusic(MIX_MAX_VOLUME); doingGood = true; }
+		}
+		if (keys.find(SDLK_s) != keys.end())
+		{
+			if (!testArrow1->checkArrow("down") && doingGood)
+				{ Mix_VolumeMusic(0); doingGood = false; }
+			else if (testArrow1->checkArrow("down") && !doingGood)
+			{ Mix_VolumeMusic(MIX_MAX_VOLUME); doingGood = true;}
+		}
+		if (keys.find(SDLK_d) != keys.end())
+		{
+			if (!testArrow1->checkArrow("right") && doingGood)
+			{
+				Mix_VolumeMusic(0); doingGood = false;
+			}
+			else if (testArrow1->checkArrow("right") && !doingGood)
+			{
+				Mix_VolumeMusic(MIX_MAX_VOLUME); doingGood = true;
+			}
+		}
+
+
+		//== Updates ============================================================
+		if (start)
+		{
+			testArrow1->update(elapsed);
+		}
+
+        //== Drawing Code =======================================================
+        prog->use();
+		//this clears the back buffer to be drawn again
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		//this sets up the world matrix I think
+        cam->draw(prog);
+		//these send data to the shader programs
+        prog->setUniform("lightPos",cam->eye.xyz());
+        prog->setUniform("worldMatrix",mat4::identity());
+        prog->setUniform("skybox",T);
+        prog->setUniform("reflective",reflective?1.0:0.0);
+		//this renders the meshes
+		testArrow1->draw(prog); // <===== TEST VAR
+		//this renders the skybox
+		mySkyBox->update(cam);
+        //this flips the frame buffer
+        SDL_GL_SwapWindow(win);
+    } //endwhile
+    
+	Mix_FreeMusic(music);
+	Mix_FreeChunk(scratch);
+	Mix_CloseAudio();
+
+    return 0;
+}
+
+//this removes the Program from memory?
+Program* Program::active=NULL;
+

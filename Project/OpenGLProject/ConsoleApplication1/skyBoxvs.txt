@@ -1,0 +1,18 @@
+#version 330
+
+layout (location = 0) in vec3 Position;
+
+uniform mat4 gWVP;
+
+uniform mat4 worldMatrix;
+uniform mat4 viewMatrix;
+uniform mat4 projMatrix;
+
+out vec3 TexCoord0;
+
+void main()
+{
+    vec4 WVP_Pos = vec4(Position, 1.0) * gWVP;
+    gl_Position = WVP_Pos.xyww;
+    TexCoord0 = Position;
+}

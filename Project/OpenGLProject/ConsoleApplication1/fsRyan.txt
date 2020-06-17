@@ -1,0 +1,62 @@
+#version 150
+
+uniform sampler2D Dtex;
+
+uniform sampler2D Stex;
+uniform sampler2D Etex;
+uniform sampler2D Btex;
+
+uniform vec3 ambColor;
+uniform vec3 eyePos;
+
+uniform vec3 lightPos;
+uniform vec4 lightColor;
+uniform mat4 lightViewMatrix;
+uniform mat4 lightProjMatrix;
+uniform vec3 lightHitheryon;
+uniform sampler2D shadowBuffer;
+
+in vec2 v_texcoord;
+in vec3 v_normal;
+in vec3 v_worldPos;
+
+
+out vec4 color;
+
+void main(){
+    vec4 pe = vec4(v_worldPos, 1) *  lightViewMatrix;
+    vec4 ps = pe * lightProjMatrix;
+    ps = ps/ ps.w;
+    vec2 tc = vec2((ps.x + 1)/2,(ps.y + 1)/2);
+	float t = texture(shadowBuffer,tc).r;
+	t = lightHitheryon.x + (t *  lightHitheryon.y);
+	
+	
+	
+	bool lit = !(t + 0.005 < -pe.z || -pe.z < 0);
+	bvec2 a = lessThan(tc,vec2(0,0));
+	bvec2 b = greaterThan(tc,vec2(1.0,1.0));
+	lit = lit && !(any(a) || any(b));
+	vec2 q = tc - vec2(0.5, 0.5);
+	float dis = dot(q,q);
+	lit = lit && (dis < 0.25);
+	
+	color = vec4(ambColor,1);
+	if(lit){
+		float pct = 1- smoothstep(0.3,0.5,length(q.xy));
+		vec3 N = normalize(v_normal);
+		vec3 L = normalize(lightPos.xyz - v_worldPos);
+		vec3 V = normalize(eyePos - v_worldPos);
+		vec3 R = reflect( -L,N );
+		float diffuse = clamp( dot(N,L), 0.0, 1.0 );
+		float specular = pow( max( 0.0, dot(V,R)) , 32.0 ); //hardcoded exponent
+		specular *= sign(diffuse);  //no specular if no diffuse
+		vec4 litColor = texture(Dtex,v_texcoord);
+		litColor.rgb *= diffuse;
+		litColor.rgb += specular * texture(Stex,v_texcoord).rgb;
+		litColor.rgb += texture(Etex,v_texcoord).rgb;
+		
+		litColor *= pct;
+		color += litColor;
+	}
+}

@@ -1,0 +1,33 @@
+#pragma once
+
+#include <string>
+using namespace std;
+
+#include "Program.h"
+#include "Cube.h"
+#include "Camera.h"
+#include "ImageCubeTexture.h"
+
+class Skybox
+{
+public: 
+	Cube* mSkyBox = new Cube();
+	Program* mSkyProg;
+	ImageCubeTexture* mTexture;
+	
+	Skybox(string vs,  string fs, string px, string nx, string pz, string nz, string py, string ny)
+	{
+		mSkyProg = new Program(vs, fs, {"color"});
+		mTexture = new ImageCubeTexture({px, nx, pz, nz, py, ny});
+
+	}
+
+	void draw(Camera* cam) 
+	{
+		mSkyProg->use();
+		cam->draw(mSkyProg);
+		mSkyProg->setUniform("gWVP", translation(cam->eye.xyz()) * cam->viewmatrix*cam->projmatrix);
+		mSkyProg->setUniform("gCubemapTexture", mTexture);
+		mSkyBox->draw(mSkyProg);
+	}
+};

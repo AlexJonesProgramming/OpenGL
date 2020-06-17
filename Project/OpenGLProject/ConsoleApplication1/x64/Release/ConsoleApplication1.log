@@ -1,0 +1,213 @@
+﻿  adler32.c
+  analysis.c
+..\..\..\libs\analysis.c(21): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  bitrate.c
+..\..\..\libs\bitrate.c(21): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  bitwise.c
+..\..\..\libs\bitwise.c(24): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  block.c
+..\..\..\libs\block.c(24): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  codebook.c
+..\..\..\libs\codebook.c(21): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  compress.c
+  crc32.c
+  deflate.c
+  dynamic_flac.c
+  dynamic_fluidsynth.c
+  dynamic_mod.c
+  dynamic_modplug.c
+  dynamic_mp3.c
+  dynamic_ogg.c
+  effects_internal.c
+c:\users\alex\desktop\spring 2017\graphics2\libs\SDL_mixer.h(27): fatal error C1083: Cannot open include file: 'SDL_stdinc.h': No such file or directory
+  effect_position.c
+..\..\..\libs\effect_position.c(33): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  effect_stereoreverse.c
+..\..\..\libs\effect_stereoreverse.c(32): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  envelope.c
+..\..\..\libs\envelope.c(22): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  floor0.c
+..\..\..\libs\floor0.c(21): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  Compiling...
+  floor1.c
+..\..\..\libs\floor1.c(21): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  fluidsynth.c
+  framing.c
+..\..\..\libs\framing.c(26): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  gzclose.c
+  gzlib.c
+..\..\..\libs\gzlib.c(157): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+..\..\..\libs\gzlib.c(161): warning C4996: 'open': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _open. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_io.h(514): note: see declaration of 'open'
+..\..\..\libs\gzlib.c(185): warning C4996: 'lseek': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _lseek. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_io.h(501): note: see declaration of 'lseek'
+..\..\..\libs\gzlib.c(222): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+..\..\..\libs\gzlib.c(269): warning C4996: 'lseek': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _lseek. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_io.h(501): note: see declaration of 'lseek'
+..\..\..\libs\gzlib.c(310): warning C4996: 'lseek': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _lseek. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_io.h(501): note: see declaration of 'lseek'
+..\..\..\libs\gzlib.c(405): warning C4996: 'lseek': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _lseek. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_io.h(501): note: see declaration of 'lseek'
+..\..\..\libs\gzlib.c(515): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+..\..\..\libs\gzlib.c(516): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+..\..\..\libs\gzlib.c(517): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  gzread.c
+..\..\..\libs\gzread.c(31): warning C4996: 'read': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _read. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_io.h(521): note: see declaration of 'read'
+..\..\..\libs\gzread.c(37): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(178): note: see declaration of 'strerror'
+..\..\..\libs\gzread.c(650): warning C4996: 'close': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _close. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_io.h(457): note: see declaration of 'close'
+  gzwrite.c
+..\..\..\libs\gzwrite.c(79): warning C4996: 'write': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _write. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_io.h(556): note: see declaration of 'write'
+..\..\..\libs\gzwrite.c(81): warning C4996: 'strerror': This function or variable may be unsafe. Consider using strerror_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(178): note: see declaration of 'strerror'
+..\..\..\libs\gzwrite.c(333): warning C4996: '_vsnprintf': This function or variable may be unsafe. Consider using _vsnprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1396): note: see declaration of '_vsnprintf'
+..\..\..\libs\gzwrite.c(528): warning C4996: 'close': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _close. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\corecrt_io.h(457): note: see declaration of 'close'
+  infback.c
+  inffast.c
+  inflate.c
+  info.c
+..\..\..\libs\info.c(24): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  inftrees.c
+  load_aiff.c
+..\..\..\libs\load_aiff.c(36): fatal error C1083: Cannot open include file: 'SDL_endian.h': No such file or directory
+  load_flac.c
+  load_mp3.c
+  load_ogg.c
+  load_voc.c
+..\..\..\libs\load_voc.c(38): fatal error C1083: Cannot open include file: 'SDL_mutex.h': No such file or directory
+  lookup.c
+c:\users\alex\desktop\spring 2017\graphics2\libs\os.h(25): fatal error C1083: Cannot open include file: 'os_types.h': No such file or directory
+  lpc.c
+c:\users\alex\desktop\spring 2017\graphics2\libs\os.h(25): fatal error C1083: Cannot open include file: 'os_types.h': No such file or directory
+  lsp.c
+c:\users\alex\desktop\spring 2017\graphics2\libs\os.h(25): fatal error C1083: Cannot open include file: 'os_types.h': No such file or directory
+  Compiling...
+  mapping0.c
+..\..\..\libs\mapping0.c(22): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  mdct.c
+c:\users\alex\desktop\spring 2017\graphics2\libs\codec.h(26): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  mixer.c
+..\..\..\libs\mixer.c(28): fatal error C1083: Cannot open include file: 'SDL_mutex.h': No such file or directory
+  music.c
+..\..\..\libs\music.c(28): fatal error C1083: Cannot open include file: 'SDL_endian.h': No such file or directory
+  music_cmd.c
+..\..\..\libs\music_cmd.c(21): fatal error C1083: Cannot open include file: 'SDL_config.h': No such file or directory
+  music_flac.c
+  music_mad.c
+  music_mod.c
+  music_modplug.c
+  music_ogg.c
+  png.c
+..\..\..\libs\png.c(534): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1952): note: see declaration of '_snprintf'
+  pngerror.c
+  pngget.c
+  pngmem.c
+  pngpread.c
+..\..\..\libs\pngpread.c(594): warning C4267: '-=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngpread.c(610): warning C4267: '-=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngpread.c(785): warning C4267: '-=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngpread.c(809): warning C4267: '-=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  pngread.c
+..\..\..\libs\pngread.c(132): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1952): note: see declaration of '_snprintf'
+..\..\..\libs\pngread.c(137): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1952): note: see declaration of '_snprintf'
+  pngrio.c
+  pngrtran.c
+..\..\..\libs\pngrtran.c(1313): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1952): note: see declaration of '_snprintf'
+..\..\..\libs\pngrtran.c(1689): warning C4267: 'initializing': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngrtran.c(1703): warning C4267: 'initializing': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  pngrutil.c
+..\..\..\libs\pngrutil.c(211): warning C4267: '=': conversion from 'size_t' to 'uInt', possible loss of data
+..\..\..\libs\pngrutil.c(221): warning C4267: '=': conversion from 'size_t' to 'uInt', possible loss of data
+..\..\..\libs\pngrutil.c(224): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+..\..\..\libs\pngrutil.c(233): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+..\..\..\libs\pngrutil.c(278): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1952): note: see declaration of '_snprintf'
+..\..\..\libs\pngrutil.c(380): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1952): note: see declaration of '_snprintf'
+..\..\..\libs\pngrutil.c(1107): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngrutil.c(1136): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1952): note: see declaration of '_snprintf'
+..\..\..\libs\pngrutil.c(1139): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1952): note: see declaration of '_snprintf'
+..\..\..\libs\pngrutil.c(1236): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+..\..\..\libs\pngrutil.c(2915): warning C4267: 'initializing': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngrutil.c(2930): warning C4267: 'initializing': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngrutil.c(2948): warning C4267: 'initializing': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngrutil.c(2973): warning C4267: 'initializing': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngrutil.c(3322): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngrutil.c(3330): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngrutil.c(3335): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngrutil.c(3350): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  pngset.c
+..\..\..\libs\pngset.c(591): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngset.c(903): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  Compiling...
+  pngtrans.c
+..\..\..\libs\pngtrans.c(210): warning C4267: 'initializing': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngtrans.c(223): warning C4267: 'initializing': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngtrans.c(236): warning C4267: 'initializing': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  pngwio.c
+..\..\..\libs\pngwio.c(56): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  pngwrite.c
+..\..\..\libs\pngwrite.c(450): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\time.h(495): note: see declaration of 'gmtime'
+..\..\..\libs\pngwrite.c(546): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1952): note: see declaration of '_snprintf'
+..\..\..\libs\pngwrite.c(551): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1952): note: see declaration of '_snprintf'
+  pngwtran.c
+..\..\..\libs\pngwtran.c(257): warning C4267: 'initializing': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  pngwutil.c
+..\..\..\libs\pngwutil.c(218): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+..\..\..\libs\pngwutil.c(226): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1952): note: see declaration of '_snprintf'
+..\..\..\libs\pngwutil.c(1259): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1952): note: see declaration of '_snprintf'
+..\..\..\libs\pngwutil.c(1578): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+..\..\..\libs\pngwutil.c(1621): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1952): note: see declaration of '_snprintf'
+..\..\..\libs\pngwutil.c(1623): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1952): note: see declaration of '_snprintf'
+..\..\..\libs\pngwutil.c(2106): warning C4267: 'initializing': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  psy.c
+c:\users\alex\desktop\spring 2017\graphics2\libs\codec.h(26): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  registry.c
+c:\users\alex\desktop\spring 2017\graphics2\libs\codec.h(26): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  res0.c
+..\..\..\libs\res0.c(26): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  SDLnet.c
+c:\users\alex\desktop\spring 2017\graphics2\libs\SDLnetsys.h(52): fatal error C1083: Cannot open include file: 'sys/ioctl.h': No such file or directory
+  SDLnetselect.c
+c:\users\alex\desktop\spring 2017\graphics2\libs\SDLnetsys.h(52): fatal error C1083: Cannot open include file: 'sys/ioctl.h': No such file or directory
+  SDLnetTCP.c
+c:\users\alex\desktop\spring 2017\graphics2\libs\SDLnetsys.h(52): fatal error C1083: Cannot open include file: 'sys/ioctl.h': No such file or directory
+  SDLnetUDP.c
+c:\users\alex\desktop\spring 2017\graphics2\libs\SDLnetsys.h(52): fatal error C1083: Cannot open include file: 'sys/ioctl.h': No such file or directory
+  sharedbook.c
+..\..\..\libs\sharedbook.c(21): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  smallft.c
+c:\users\alex\desktop\spring 2017\graphics2\libs\codec.h(26): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  synthesis.c
+..\..\..\libs\synthesis.c(19): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  trees.c
+  uncompr.c
+  vorbisenc.c
+c:\users\alex\desktop\spring 2017\graphics2\libs\codec.h(26): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  vorbisfile.c
+c:\users\alex\desktop\spring 2017\graphics2\libs\codec.h(26): fatal error C1083: Cannot open include file: 'ogg.h': No such file or directory
+  wavestream.c
+..\..\..\libs\wavestream.c(29): fatal error C1083: Cannot open include file: 'SDL_audio.h': No such file or directory
+  Compiling...
+  window.c
+c:\users\alex\desktop\spring 2017\graphics2\libs\os.h(25): fatal error C1083: Cannot open include file: 'os_types.h': No such file or directory
+  zutil.c

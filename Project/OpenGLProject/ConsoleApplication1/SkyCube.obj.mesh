@@ -1,0 +1,14 @@
+mesh_01s
+num_vertices 0
+num_indices 0
+positions
+
+texcoords
+
+normals
+
+indices
+
+material 0 0 Material 0.640000 0.640000 0.640000
+
+end
